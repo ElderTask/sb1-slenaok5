@@ -1,0 +1,33 @@
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Hide Spline watermark */
+:global([data-spline-uiblock="true"]) {
+  display: none !important;
+}
+
+.spline-canvas-container {
+  position: relative;
+}
+
+.spline-canvas-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  height: 50px;
+  background: linear-gradient(to right, transparent, var(--dark-950));
+  pointer-events: none;
+  z-index: 10;
+}
